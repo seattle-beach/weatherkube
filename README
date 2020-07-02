@@ -9,3 +9,9 @@ to start).
 weatherbus image.
 4. Create the namespace: `kubectl create namespace weatherbus`
 5. Add pod: `kubectl create -f prime-pod.yml`
+6. Add service: `kubectl create -f prime-service.yml`
+7. Expose Weatherbus: `minikube -n weatherbus service prime-service`
+8. Append `/api/v1/stops` to the URL from the output of the previous command.
+Visit it in the browser.
+9. You should see a retrofit error, because downstream services don't exist
+yet.

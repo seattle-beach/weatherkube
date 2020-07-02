@@ -8,5 +8,5 @@ RUN find . -name '*.jar'
 
 FROM fabric8/java-alpine-openjdk8-jre
 COPY --from=BUILD_IMAGE /tmp/src/build/libs/weatherbus-SNAPSHOT.jar /weatherbus.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/weatherbus.jar"]
+EXPOSE 30000
+ENTRYPOINT ["java", "-jar", "/weatherbus.jar", "-Dserver.port=3000"]

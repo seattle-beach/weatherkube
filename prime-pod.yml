@@ -3,6 +3,8 @@ kind: Pod
 metadata:
   namespace: weatherbus
   name: prime
+  labels:
+    app: weatherbus-prime
 spec:
   containers:
   - name: prime
