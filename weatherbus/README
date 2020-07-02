@@ -1,9 +1,7 @@
 To build:
 
-1. Clone git@github.com:seattle-beach/weatherbus.git as a sibling of this
-repo, so that it's ../../weatherbus relative to this README.
-2. Follow the instructions in Weatherbus's README to make it build.
-3. Run `./build`.
+1. git submodule update --init
+2. docker build -t weatherbus .
 
 To run:
 

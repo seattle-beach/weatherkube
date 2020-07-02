@@ -1,4 +1,12 @@
-FROM openjdk:8
-COPY weatherbus.jar /app/weatherbus.jar
-CMD java -jar /app/weatherbus.jar
+FROM gradle:6.5.1-jdk8 as BUILD_IMAGE
+WORKDIR /build
+COPY ./src /tmp/src
+WORKDIR /tmp/src
+RUN ./gradlew assemble
+RUN find . -name '*.jar'
+
+
+FROM fabric8/java-alpine-openjdk8-jre
+COPY --from=BUILD_IMAGE /tmp/src/build/libs/weatherbus-SNAPSHOT.jar /weatherbus.jar
 EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/weatherbus.jar"]
