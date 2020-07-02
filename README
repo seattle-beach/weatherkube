@@ -1,0 +1,11 @@
+This repo contains the artifacts needed to deploy Weatherbus on Kubernetes,
+specifically Minikube. To set it up:
+
+
+1. Make sure minikube is running (`minikube status` to check, `minikube start`
+to start).
+2. Point Docker at minikube by running `eval $(minikube docker-env)`.
+3. Follow the instructions in the `weatherbus` subdirectory to build the main
+weatherbus image.
+4. Create the namespace: `kubectl create namespace weatherbus`
+5. Add pod: `kubectl create -f prime-pod.yml`

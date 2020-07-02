@@ -1,7 +1,7 @@
 To build:
 
 1. git submodule update --init
-2. docker build -t weatherbus .
+2. docker build -t weatherbus/prime .
 
 To run:
 
