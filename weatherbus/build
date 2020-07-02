@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+(cd ../../weatherbus && source .envrc && ./gradlew assemble)
+cp ../../weatherbus/build/libs/weatherbus-SNAPSHOT.jar weatherbus.jar
+docker build -t weatherbus .
