@@ -5,4 +5,4 @@ To build:
 
 To run:
 
-docker run -p 30000:30000 weatherbus
+docker run -p 30000:8080 weatherbus/prime
