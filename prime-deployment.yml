@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: weatherbus
+  name: prime
+spec:
+  selector:
+    matchLabels:
+      app: weatherbus-prime
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: weatherbus-prime
+    spec:
+      containers:
+      - name: prime
+        image: weatherbus/prime
+        imagePullPolicy: Never
+        env:
+        - name: WEATHERBUS-BUS_RIBBON_LISTOFSERVERS
+          value: http://bus-service.weatherbus.svc.cluster.local:9090

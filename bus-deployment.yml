@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: weatherbus
+  name: bus
+spec:
+  selector:
+    matchLabels:
+      app: weatherbus-bus
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: weatherbus-bus
+    spec:
+      containers:
+      - name: bus
+        image: weatherbus/bus
+        imagePullPolicy: Never
+        env:
+        - name: ONEBUSAWAY_ENDPOINT
+          value: http://api.pugetsound.onebusaway.org
+        - name: ONEBUSAWAY_KEY
+          value: test
