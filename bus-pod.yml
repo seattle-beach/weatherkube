@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: weatherbus
+  name: bus
+  labels:
+    app: weatherbus-bus
+spec:
+  containers:
+  - name: bus
+    image: weatherbus/bus
+    imagePullPolicy: Never
+    env:
+    - name: ONEBUSAWAY_ENDPOINT
+      value: http://api.pugetsound.onebusaway.org
+    - name: ONEBUSAWAY_KEY
+      value: test

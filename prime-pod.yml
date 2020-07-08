@@ -10,3 +10,6 @@ spec:
   - name: prime
     image: weatherbus/prime
     imagePullPolicy: Never
+    env:
+    - name: WEATHERBUS-BUS_RIBBON_LISTOFSERVERS
+      value: http://bus-service.weatherbus.svc.cluster.local:9090

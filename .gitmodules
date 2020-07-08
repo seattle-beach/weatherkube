@@ -1,3 +1,6 @@
 [submodule "weatherbus/build/weatherbus-src"]
 	path = weatherbus/src
 	url = git@github.com:seattle-beach/weatherbus.git
+[submodule "weatherbus-bus/src"]
+	path = weatherbus-bus/src
+	url = git@github.com:seattle-beach/weatherbus-bus.git
